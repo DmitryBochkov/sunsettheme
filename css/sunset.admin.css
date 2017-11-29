@@ -1,0 +1,63 @@
+#wpcontent {
+  font-family: 'Raleway', 'Helvetica', 'Arial', sans-serif;
+  font-weight: 300;
+}
+h1, h2, h3, h4, h5, h6, .form-table th, .form-wrap label {
+  font-weight: 500;
+}
+
+.sunset-sidebar-preview,
+.sunset-general-form {
+  display: inline-block;
+  vertical-align: top;
+}
+.sunset-sidebar-preview {
+  width: 280px;
+  background-color: #1f1f1f;
+  padding: 20px;
+  text-align: center;
+  margin: 20px;
+}
+.sunset-username,
+.sunset-description {
+  font-weight: 100;
+  color: #fff;
+}
+.sunset-username {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+.sunset-description {
+  font-size: 13px;
+  margin-bottom: 20px;
+}
+.image-container {
+  overflow: hidden;
+  text-align: center;
+}
+.profile-picture {
+  width: 122px;
+  height: 122px;
+  overflow: hidden;
+  border-radius: 50%;
+  margin: 20px auto;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.sunset-icon-sisdebar {
+  color: #fff;
+  margin: 0 2px;
+}
+.sunset-icon-sisdebar--gplus {
+  margin-left: 8px;
+}
+.sunset-icon-sisdebar:before {
+  width: 22px;
+  height: 22px;
+  font-size: 22px;
+}
+.sunset-icon-button::before {
+  margin-top: 3px;
+  margin-left: -3px;
+}
