@@ -76,21 +76,23 @@ function sunset_posted_footer() {
   return '<div class="post-footer-container"><div class="row"><div class="col-xs-12 col-sm-6">' . get_the_tag_list( '<div class="tags-list"><span class="sunset-icon sunset-tag"></span>', ' ', '</div>' ) . '</div><div class="col-xs-12 col-sm-6 text-right">' . $comments . '</div></div></div>';
 }
 
-function sunset_get_attachment() {
+function sunset_get_attachment( $num = 1 ) {
   $output = '';
 
-  if ( has_post_thumbnail() ) {
+  if ( has_post_thumbnail() && 1 == $num ) {
     $output = wp_get_attachment_url( get_post_thumbnail_id( get_the_id() ) );
   } else {
     $attachments = get_posts( array(
       'post_type' => 'attachment',
-      'posts_per_page' => 1,
+      'posts_per_page' => $num,
       'post_parent' => get_the_id(),
     ) );
-    if ( $attachments ) {
+    if ( $attachments && 1 == $num ) {
       foreach ($attachments as $attachment) {
         $output = wp_get_attachment_url( $attachment->ID );
       }
+    } else {
+      $output = $attachments;
     }
     wp_reset_postdata();
   }
@@ -101,7 +103,12 @@ function sunset_get_embeded_media( $type = array() ) {
 
   $content = do_shortcode( apply_filters(  'the_content', get_the_content() ) );
   $embed = get_media_embedded_in_content( $content, $type );
-  $output = str_replace( '?visual=true', '?visual=false', $embed[0] );
+
+  if ( in_array( 'audio', $type) ) {
+    $output = str_replace( '?visual=true', '?visual=false', $embed[0] );
+  } else {
+    $output = $embed[0];
+  }
 
   return $output;
 }

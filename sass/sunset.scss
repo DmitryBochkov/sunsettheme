@@ -192,7 +192,11 @@ a {
   ----------------------
 */
 article {
-  margin-bottom: 80px;
+  padding-bottom: 40px;
+  padding-top: 40px;
+  &:first-child {
+    padding-top: 80px;
+  }
 }
 h1 {
   font-size: 48px;
@@ -202,7 +206,6 @@ h1 {
     color: $primary-color;
   }
   &.entry-title {
-    margin: 40px 0 0;
     padding: 0;
     line-height: 1.5em;
 
@@ -337,7 +340,6 @@ h1 {
   ----------------------
 */
 .sunset-format-image {
-  margin-top: 50px;
   .entry-header {
     height: 550px;
     position: relative;
@@ -399,6 +401,34 @@ h1 {
     iframe {
       width: 100%;
       height: 166px;
+    }
+  }
+}
+
+/*
+  Video post format
+  ----------------------
+*/
+.sunset-format-video {
+  header {
+    h1 {
+      &.entry-title {
+        margin-top: 20px;
+      }
+    }
+  }
+}
+
+/*
+  Gallery post format
+  ----------------------
+*/
+.sunset-format-gallery {
+  .standard-featured {
+    height: 330px;
+    position: relative;
+  
+    &:after {
     }
   }
 }

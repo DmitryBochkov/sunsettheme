@@ -2,13 +2,18 @@
 /*
   @package sunsettheme
 
-  - Standard post format
+  - Video post format
 
 */
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'sunsey-format-video' ); ?>>
+
   <header class="entry-header text-center">
+
+    <div class="embed-responsive embed-responsive-16by9">
+      <?php echo sunset_get_embeded_media( array( 'video', 'iframe' ) ); ?>      
+    </div>
 
     <?php the_title( '<h1 class="entry-title"><a href="' . esc_url( get_the_permalink() ) . '" rel="bookmark">', '</a></h1>' ); ?>
 
@@ -20,8 +25,8 @@
 
   <div class="entry-content">
 
-    <?php if ( sunset_get_attachment() ): ?>
-      <?php $featured_image = sunset_get_attachment(); ?>
+    <?php if ( has_post_thumbnail() ): ?>
+      <?php $featured_image = wp_get_attachment_url( get_post_thumbnail_id( get_the_id() ) ); ?>
 
       <a class="standard-featured-link" href="<?php the_permalink(); ?>">
         <div class="standard-featured background-image" style="background-image: url(<?php echo $featured_image; ?>);"></div>
