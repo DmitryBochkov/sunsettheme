@@ -8,6 +8,7 @@
 @import "base/variables";
 @import "base/mixins";
 @import "base/fonticon";
+@import "base/placeholders";
 
 /*
   Generic
@@ -47,7 +48,7 @@ a {
 .header-container {
   position: relative;
   height: 326px;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  @extend %text-shadow;
 }
 .site-title {
   margin: 0;
@@ -197,6 +198,9 @@ h1 {
   font-size: 48px;
   font-weight: 200;
 
+  a {
+    color: $primary-color;
+  }
   &.entry-title {
     margin: 40px 0 0;
     padding: 0;
@@ -324,6 +328,77 @@ h1 {
   .comments-link {
     .sunset-icon {
       margin-left: 10px;
+    }
+  }
+}
+
+/*
+  Image post format
+  ----------------------
+*/
+.sunset-format-image {
+  margin-top: 50px;
+  .entry-header {
+    height: 550px;
+    position: relative;
+  }
+
+
+  h1,
+  .entry-meta,
+  .entry-header {
+    color: #fff;
+    @extend %text-shadow;
+    a {
+      color: inherit;
+    }
+  }
+
+  h1 {
+    padding-top: 20px;
+  }
+  }
+
+  .entry-excerpt {
+    &.image-caption {
+      position: absolute;
+      margin: 0;
+      // top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      @extend %background-gradient;
+      p {
+        margin: 40px 0;
+      }
+    }
+}
+
+/*
+  Audio post format
+  ----------------------
+*/
+.sunset-format-audio {
+  h1 {
+    font-size: 30px;
+    &.entry-title {
+      display: inline-block;
+      margin-right: 20px;
+
+      &:before,
+      &:after {
+        display: none;
+      }
+    }
+  }
+  .entry-meta {
+    display: inline-block;
+    margin-bottom: 0;
+  }
+  .entry-content {
+    iframe {
+      width: 100%;
+      height: 166px;
     }
   }
 }
