@@ -523,9 +523,14 @@ h1.entry-title:after {
   Gallery post format
   ----------------------
 */
+.sunset-format-gallery header h1.entry-title {
+  margin-top: 20px;
+}
 .sunset-format-gallery .standard-featured {
-  height: 330px;
-  position: relative;
+  height: 500px;
+}
+.sunset-format-gallery .standard-featured:after {
+  background-color: transparent;
 }
 
 /*# sourceMappingURL=sunset.css.map */

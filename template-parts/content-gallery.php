@@ -7,7 +7,7 @@
 */
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'sunset-format-gallery' ); ?>>
   <header class="entry-header text-center">
 
     <?php if ( sunset_get_attachment() ): ?>
@@ -24,13 +24,22 @@
           foreach ($attachments as $attachment):
             $active = $i == 0 ? ' active' : '';
           ?>
-            <div class="item <?php echo $active; ?> background-image" style="background-image: url(<?php echo wp_get_attachment_url( $attachment->ID ); ?>); "></div>
+            <div class="item standard-featured <?php echo $active; ?> background-image" style="background-image: url(<?php echo wp_get_attachment_url( $attachment->ID ); ?>); "></div>
           <?php $i++; endforeach; ?>
 
 
         </div><!-- .carousel-inner -->
+
+        <a class="left carousel-control" href="#post-gallery-<?php the_ID(); ?>" role="button" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#post-gallery-<?php the_ID(); ?>" role="button" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
       </div><!-- .carousel -->
-      <?php endif; ?>
+    <?php endif; ?>
 
     <?php the_title( '<h1 class="entry-title"><a href="' . esc_url( get_the_permalink() ) . '" rel="bookmark">', '</a></h1>' ); ?>
 
