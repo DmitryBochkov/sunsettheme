@@ -369,9 +369,11 @@ h1 {
       left: 0;
       right: 0;
       bottom: 0;
+      color: #fff;
       @extend %background-gradient;
       p {
         margin: 40px 0;
+        font-size: 14px;
       }
     }
 }
@@ -495,5 +497,21 @@ h1 {
         @include transform(scale(1));
       }
     }
+  }
+
+  .entry-excerpt {
+    &.image-caption {
+      @include animate(transform, 320ms);
+      @include transform(translateY(100%));
+    }
+  }
+
+  &:hover {
+    .entry-excerpt {
+      &.image-caption {
+        @include transform(translateY(0));
+      }
+    }
+
   }
 }
