@@ -91,7 +91,7 @@ function sunset_get_attachment( $num = 1 ) {
       foreach ($attachments as $attachment) {
         $output = wp_get_attachment_url( $attachment->ID );
       }
-    } else {
+    } elseif ( $attachments && $num > 1 ) {
       $output = $attachments;
     }
     wp_reset_postdata();
