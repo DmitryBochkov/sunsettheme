@@ -515,3 +515,37 @@ h1 {
 
   }
 }
+
+/*
+  Quote post format
+  ----------------------
+*/
+.sunset-format-quote {
+  .quote-content {
+    font-size: 42px;
+    font-weight: 100;
+    letter-spacing: 0.03em;
+    line-height: 1.3em;
+
+    &:before,
+    &:after {
+      display: inline-block;
+      position: relative;
+      color: #ccc;
+    }
+
+    &:before {
+      content: open-quote;
+    }
+
+    &:after {
+      content: close-quote;
+    }
+  }
+}
+
+.quote-author {
+  color: $light-grey;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+}
