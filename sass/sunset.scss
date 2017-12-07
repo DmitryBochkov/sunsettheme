@@ -580,3 +580,43 @@ h1 {
     }
   }
 }
+
+/*
+  Aside post format
+  ----------------------
+*/
+.sunset-format-aside {
+
+  .aside-container {
+    padding-top: 20px;
+    background-color: rgba(0, 0, 0, 0.075);
+  }
+  .aside-featured {
+    width: 130px;
+    height: 130px;
+    margin: 0 auto;
+    border-radius: 50%;
+  }
+  .entry-meta {
+    margin-bottom: 5px;
+  }
+  .entry-excerpt {
+    margin-top: 0;
+    p {
+      font-size: 15px;
+    }
+  }
+  .entry-footer {
+    padding-right: 10px;
+    border-bottom: none;
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+  h1 {
+    &.entry-title {
+      &:before,
+      &:after {
+      }
+
+    }
+  }
+}
