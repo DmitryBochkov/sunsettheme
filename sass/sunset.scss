@@ -542,10 +542,41 @@ h1 {
       content: close-quote;
     }
   }
+
+  .quote-author {
+    color: $light-grey;
+    font-size: 12px;
+    letter-spacing: 0.06em;
+  }
 }
 
-.quote-author {
-  color: $light-grey;
-  font-size: 12px;
-  letter-spacing: 0.06em;
+/*
+  Link post format
+  ----------------------
+*/
+.sunset-format-link {
+  h1 {
+    &.entry-title {
+      &:before,
+      &:after {
+        display: none;
+      }
+      a {
+        display: block;
+      }
+
+      .link-icon {
+        display: block;
+        margin: 0 auto;
+        color: #fff;
+        font-size: 30px;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: rgba(0, 0, 0, 0.6);
+        line-height: 1;
+        padding-top: 10px;
+      }
+    }
+  }
 }
