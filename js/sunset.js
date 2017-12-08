@@ -1,5 +1,5 @@
 jQuery(document).ready(function($) {
-
+  // custom sunset scripts
   var carousel = '.sunset-carousel-thumb';
   sunset_get_bs_thumbs(carousel);
 
@@ -14,4 +14,38 @@ jQuery(document).ready(function($) {
     $(carousel).find('.carousel-control.left').find('.thumbnail-container').css({'background-image': 'url(' + prevThumb + ')'});
 
   }
+
+  // Ajax functions
+  $(document).on('click', '.sunset-load-more:not(.loading)', function() {
+
+    var that = $(this);
+    var page = $(this).data('page');
+    var newPage = page + 1;
+    var ajaxurl = $(this).data('url');
+
+    that.addClass('loading').find('.text').slideUp(320);
+    that.find('.sunset-icon').addClass('spin');
+
+    $.ajax({
+      url: ajaxurl,
+      type: 'post',
+      data: {
+        page: page,
+        action: 'sunset_load_more',
+      },
+      error: function(response) {
+        console.log(response);
+      },
+      success: function(response) {
+        that.data('page', newPage);
+        $('.sunset-posts-container').append(response);
+
+        setTimeout(function() {
+          that.removeClass('loading').find('.text').slideDown(320);
+          that.find('.sunset-icon').removeClass('spin');
+        }, 1000);
+      }
+    });
+
+  });
 });

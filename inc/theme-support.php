@@ -1,6 +1,7 @@
 <?php
 
 /*
+@package sunsettheme
 =========
 Theme Support Options
 =========

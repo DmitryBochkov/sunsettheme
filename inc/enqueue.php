@@ -1,6 +1,7 @@
 <?php
 
 /*
+@package sunsettheme
 =========
 Admin enqueue functions
 =========
