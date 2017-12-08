@@ -13,6 +13,7 @@ function sunset_load_more() {
 
   $query = new WP_Query( array(
     'post_type' => 'post',
+    'post_status' => 'publish',
     'paged' => $paged,
   ) );
 

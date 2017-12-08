@@ -13,7 +13,8 @@ get_header();
         <?php
           if ( have_posts()):
             while ( have_posts() ) : the_post();
-
+              // $class = 'reveal';
+              // set_query_var( 'post-class', $class );
               get_template_part( 'template-parts/content', get_post_format() );
 
             endwhile;
