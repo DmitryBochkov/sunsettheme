@@ -26,25 +26,26 @@ function sunset_load_more() {
     $archVal = explode( '/', $archive );
     $flipped = array_flip( $archVal );
 
-    if ( isset( $flipped['category'] ) || isset( $flipped['tag'] ) || isset( $flipped['author'] ) ) {
-
-      if ( isset( $flipped['category'] ) ) {
+    switch ( isset( $flipped ) ) {
+      case $flipped['category'] :
         $type = 'category_name';
         $key = 'category';
-      } elseif ( isset( $flipped['tag'] ) ) {
+        break;
+      case $flipped['tag'] :
         $type = 'tag';
         $key = $type;
-      } elseif ( isset( $flipped['author'] ) ) {
+        break;
+      case $flipped['author'] :
         $type = 'author';
         $key = $type;
-      }
-
-      $currKey = array_keys( $archVal, $key );
-      $nextKey = $currKey[0] + 1;
-      $value = $archVal[$nextKey];
-
-      $args[ $type ] = $value;
+        break;
     }
+
+    $currKey = array_keys( $archVal, $key );
+    $nextKey = $currKey[0] + 1;
+    $value = $archVal[$nextKey];
+
+    $args[ $type ] = $value;
 
     // check page trail and remove 'page' value
     if ( isset( $flipped['page'] ) ) {
