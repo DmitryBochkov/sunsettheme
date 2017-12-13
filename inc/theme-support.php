@@ -152,3 +152,19 @@ function sunset_grab_current_uri() {
 
   return $archive_url;
 }
+
+/*
+=========
+Single Post Custom Functions
+=========
+*/
+function sunset_post_navigation() {
+  $nav = '<div class="row">';
+  $prev = get_previous_post_link( '<div class="post-link-nav"><span class="sunset-icon sunset-chevron-left" aria-hidden="true"></span> %link</div>' );
+  $nav .= '<div class="col-xs-12 col-sm-6">' . $prev . '</div>';
+  $next = get_next_post_link( '<div class="post-link-nav">%link <span class="sunset-icon sunset-chevron-right" aria-hidden="true"></span></div>' );
+  $nav .= '<div class="col-xs-12 col-sm-6 text-right">' . $next . '</div>';
+  $nav .= '</div>';
+
+  return $nav;
+}

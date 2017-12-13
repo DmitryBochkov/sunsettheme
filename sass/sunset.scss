@@ -693,7 +693,8 @@ h1 {
   letter-spacing: 0.02em;
   line-height: 1.7em;
   a,
-  .sunset-tooltip {
+  .sunset-tooltip,
+  .sunset-popover {
     cursor: pointer;
     color: #ff9d1d;
 
@@ -702,7 +703,8 @@ h1 {
       color: #f56b09;
     }
   }
-  .sunset-tooltip  {
+  .sunset-tooltip,
+  .sunset-popover {
     border-bottom: 1px dotted #ff9d1d;
   }
   p {
@@ -711,5 +713,18 @@ h1 {
   b,
   strong {
     font-weight: 500;
+  }
+}
+.post-link-nav {
+  padding: 10px 0;
+
+  a {
+    padding: 0 5px;
+    color: #000;
+
+    &:hover,
+    &:focus {
+      color: #ff9d1d;
+    }
   }
 }
