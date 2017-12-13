@@ -9,6 +9,7 @@
 @import "base/mixins";
 @import "base/fonticon";
 @import "base/placeholders";
+@import "base/wordpress";
 
 /*
   Generic
@@ -682,4 +683,21 @@ h1 {
   animation-duration: 1000ms;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
+}
+
+/* Single */
+.entry-content {
+  margin-top: 40px;
+  font-size: 18px;
+  font-weight: 300;
+  letter-spacing: 0.02em;
+  line-height: 1.7em;
+
+  p {
+    margin-bottom: 15px;
+  }
+  b,
+  strong {
+    font-weight: 500;
+  }
 }
