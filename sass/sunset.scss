@@ -685,7 +685,7 @@ h1 {
   animation-timing-function: linear;
 }
 
-/* Single */
+/* Single post */
 .entry-content {
   margin-top: 40px;
   font-size: 18px;
@@ -727,4 +727,49 @@ h1 {
       color: #ff9d1d;
     }
   }
+}
+
+/*
+  Sharing section
+  -------------------
+*/
+.sunset-shareThis {
+  padding-top: 10px;
+  text-align: center;
+  border-top: 1px solid #f1f1f1;
+  clear: both;
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    li {
+      float: none;
+      display: inline-block;
+    }
+
+    a {
+      display: inline-block;
+      margin: 0 5px;
+      font-size: 20px;
+      opacity: 0.75;
+      color: #000;
+      &:hover,
+      &:focus {
+        color: #000;
+        opacity: 1;
+      }
+    }
+  }
+}
+
+
+/*
+  Comments section
+  -------------------
+*/
+.comments-area {
+  border-top: 4px solid #f1f1f1;
+  margin-top: 40px;
 }

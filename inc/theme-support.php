@@ -36,6 +36,9 @@ function sunset_register_nav_menu() {
 }
 add_action( 'after_setup_theme', 'sunset_register_nav_menu' );
 
+/* Activate HTML5 features */
+add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption' ) );
+
 /*
 =========
 Blog Post Loop Functions
@@ -64,8 +67,8 @@ function sunset_posted_footer() {
   if ( comments_open() ) {
     if (0 == $comments_num) {
       $comments = __('No comments');
-    } elseif ( $comments_num >1 ) {
-      $comments = $comments_num . __('Comments');
+    } elseif ( $comments_num > 1 ) {
+      $comments = $comments_num . __(' Comments');
     } else {
       $comments = __('1 Comment');
     }
@@ -168,3 +171,27 @@ function sunset_post_navigation() {
 
   return $nav;
 }
+
+function sunset_share_this( $content ) {
+
+  if ( is_single() ) {
+    $content .= '<div class="sunset-shareThis"><h4>Share this</h4>';
+
+    $title = get_the_title();
+    $permalink = get_the_permalink();
+    $twitterHandler = get_option( 'twitter_handler' ) ? '&amp;via=' . esc_attr( get_option( 'twitter_handler' ) ) : '';
+
+    $twitter = 'https://twitter.com/intent/tweet?text=' . $title . '&amp;url=' . $permalink . $twitterHandler . '';
+    $facebook = 'https://www.facebook.com/sharer/sharer.php?u=' . $permalink;
+    $google = 'https://plus.google.com/share?url=' . $permalink;
+
+    $content .= '<ul>';
+    $content .= '<li><a href="' . $twitter . '" target="_blank" rel="nofollow"><span class="sunset-icon sunset-twitter"></span></a></li>';
+    $content .= '<li><a href="' . $facebook . '" target="_blank" rel="nofollow"><span class="sunset-icon sunset-facebook"></span></a></li>';
+    $content .= '<li><a href="' . $google . '" target="_blank" rel="nofollow"><span class="sunset-icon sunset-googleplus"></span></a></li>';
+    $content .= '</ul></div><!-- .sunset-share -->';
+  }
+
+  return $content;
+}
+add_filter( 'the_content', 'sunset_share_this' );
