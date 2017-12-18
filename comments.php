@@ -21,24 +21,7 @@ if ( post_password_required() ) {
       ?>
     </h2>
 
-    <?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ): ?>
-      <nav id="comment-nav-top" class="comment-navigation" role="navigation">
-        <div class="row">
-          <div class="col-xs-12 col-sm-6">
-            <div class="post-link-nav">
-              <span class="sunset-icon sunset-chevron-left" aria-hidden="true"></span>
-              <?php previous_comments_link( esc_html__( 'Older Comments', 'sunsettheme' ) ); ?>
-            </div>
-          </div>
-          <div class="col-xs-12 col-sm-6 text-right">
-            <div class="post-link-nav">
-              <?php next_comments_link( esc_html__( 'Newer Comments', 'sunsettheme' ) ); ?>
-              <span class="sunset-icon sunset-chevron-right" aria-hidden="true"></span>
-            </div>
-          </div>
-        </div>
-      </nav>
-    <?php endif; ?>
+    <?php sunset_get_post_naigation(); ?>
 
     <ol class="comment-list">
       <?php
@@ -63,24 +46,7 @@ if ( post_password_required() ) {
       ?>
     </ol>
 
-    <?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ): ?>
-      <nav id="comment-nav-bottom" class="comment-navigation" role="navigation">
-        <div class="row">
-          <div class="col-xs-12 col-sm-6">
-            <div class="post-link-nav">
-              <span class="sunset-icon sunset-chevron-left" aria-hidden="true"></span>
-              <?php previous_comments_link( esc_html__( 'Older Comments', 'sunsettheme' ) ); ?>
-            </div>
-          </div>
-          <div class="col-xs-12 col-sm-6 text-right">
-            <div class="post-link-nav">
-              <?php next_comments_link( esc_html__( 'Newer Comments', 'sunsettheme' ) ); ?>
-              <span class="sunset-icon sunset-chevron-right" aria-hidden="true"></span>
-            </div>
-          </div>
-        </div>
-      </nav>
-    <?php endif; ?>
+    <?php sunset_get_post_naigation(); ?>
 
     <?php if ( !comments_open() && get_comments_number() ): ?>
 
@@ -91,6 +57,25 @@ if ( post_password_required() ) {
     <?php endif; ?>
   <?php endif; ?>
 
-  <?php comment_form(); ?>
+  <?php
+    $fields = array(
+      'author' =>
+      '<div class="form-group"><label for="author">' . __( 'Name', 'sunsettheme' ) . '</label> <span class="required">*</span> <input id="author" class="form-control" name="author" value="' . esc_attr( $commenter['comment_author'] ) . '" type="text" required="required"></div>',
+      'email' =>
+      '<div class="form-group"><label for="email">' . __( 'Email', 'sunsettheme' ) . '</label> <span class="required">*</span> <input id="email" class="form-control" name="email" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) . '" required="required"></div>',
+      'url' =>
+      '<div class="form-group last-field"><label for="url">' . __( 'Website', 'sunsettheme' ) . '</label><input id="url" class="form-control" name="url" type="text" value="' . esc_attr( $commenter['comment_author_url'] ) . '"></div>',
+    );
+    $args = array(
+      'class_submit' => 'btn btn-block btn-lg btn-warning',
+      'label_submit' => __( 'Submit Comment' ),
+      'comment_field' =>
+      '<div class="form-group"><label for="comment">' . _x( 'Comment', 'noun' ) .
+    '</label><textarea id="comment" class="form-control" name="comment" rows="4" required="required">' .
+    '</textarea></div>',
+      'fields' => apply_filters( 'comment_form_default_fields', $fields ),
+    );
+    comment_form( $args );
+  ?>
 
 </div><!-- comments-area -->
