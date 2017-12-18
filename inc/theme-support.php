@@ -158,6 +158,25 @@ function sunset_grab_current_uri() {
 
 /*
 =========
+SIDEBAR FUNCTIONS
+=========
+*/
+function sunset_sidebar_init() {
+  $args = array(
+    'name' => esc_html__( 'Sunset Sidebar', 'sunsettheme' ),
+    'id' => 'sunset-sidebar',
+    'description' => 'Dynamic Right Sidebar',
+    'before_widget' => '<section id="%1$s" class="sunset-widget %2$s">',
+    'after_widget' => '</section>',
+    'before_title' => '<h2 class="sunset-widget-title">',
+    'after_title' => '</h2>',
+  );
+  register_sidebar( $args );
+}
+add_action( 'widgets_init', 'sunset_sidebar_init' );
+
+/*
+=========
 Single Post Custom Functions
 =========
 */
@@ -201,5 +220,5 @@ function sunset_get_post_naigation() {
   //   require( get_template_directory() . '/inc/templates/sunset-comment-nav.php' );
   // }
   require( get_template_directory() . '/inc/templates/sunset-comment-nav.php' );
-  
+
 }
