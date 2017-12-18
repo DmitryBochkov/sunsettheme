@@ -6,7 +6,7 @@
 	------------------------------------------------
 */
 
-@mixin animate ( $attr, $time){
+@mixin animate( $attr, $time ) {
     -webkit-transition: $attr $time ease;
     -moz-transition: $attr $time ease;
     -ms-transition: $attr $time ease;

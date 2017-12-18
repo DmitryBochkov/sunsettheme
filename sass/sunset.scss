@@ -864,11 +864,11 @@ h1 {
 
 a.comment-reply-link {
 	text-transform: uppercase;
-	color: #ff9d1d;
+	color: $orange;
 
 		&:hover,
 		&:focus {
-			color: #F56B08;
+			color: $orange-hover;
 		}
 }
 
@@ -891,4 +891,33 @@ a.comment-reply-link {
   background-color: #1f1f1f;
   color: #fff;
   z-index: 9;
+  @include animate(transform, 320ms);
+
+  &.sidebar-closed {
+    @include transform(translateX(100%));
+  }
+}
+.sunset-sidebar-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  padding-top: 40px;
+}
+.sidebar-close,
+.sidebar-open {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  color: #fff;
+  cursor: pointer;
+  &:hover,
+  &:focus {
+    color: $orange-hover;
+  }
+}
+.sidebar-open {
+  left: auto;
+  right: 20px;
+  top: 20px;
+  font-size: 10px;
 }
