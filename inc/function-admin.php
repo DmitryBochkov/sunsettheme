@@ -69,7 +69,7 @@ function sunset_custom_settings() {
   add_settings_field( 'custom-background', 'Custom Background', 'sunset_custom_background', 'alecadd_sunset_theme', 'sunset-theme-options' );
 
   //Contact Form Options
-  register_setting( 'suset-contact-options', 'activate_contact' );
+  register_setting( 'sunset-contact-options', 'activate_contact' );
 
   add_settings_section( 'sunset-contact-section', 'Contact Form', 'sunset_contact_section', 'alecadd_sunset_theme_contact' );
 

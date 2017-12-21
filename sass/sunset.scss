@@ -285,7 +285,9 @@ h1 {
 .button-container {
   margin-bottom: 30px;
 }
-.btn-sunset {
+.btn-sunset,
+a.btn-sunset,
+.entry-content a.btn-sunset {
   padding: 8px 12px;
   text-transform: uppercase;
   font-size: 14px;

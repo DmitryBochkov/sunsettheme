@@ -174,8 +174,11 @@ class Sunset_Popular_Posts_Widget extends WP_Widget {
           $post_format = get_post_format() ? get_post_format() : 'standard';
           echo '<div class="media">';
           echo '<div class="media-left"><img class="media-object" src="' . get_template_directory_uri() . '/img/post-' . $post_format . '.png" alt="' . get_the_title() . '"></div>';
-          echo '<div class="media-body">' . get_the_title() . '</div>';
-          echo '</div>';
+          echo '<div class="media-body">';
+  				echo '<a href="' . get_the_permalink() . '" title="' . get_the_title() . '">' . get_the_title() . '</a>';
+  				echo '<div class="row"><div class="col-xs-12">'. sunset_posted_footer( true ) .'</div></div>';
+  				echo '</div>';
+  				echo '</div>';
         }
         // echo '</ul>';
       }
