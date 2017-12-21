@@ -75,3 +75,13 @@ function sunset_tag_cloud_font_change( $args ) {
   return $args;
 }
 add_filter( 'widget_tag_cloud_args', 'sunset_tag_cloud_font_change' );
+
+function sunset_list_categories_output_change( $links ) {
+
+	$links = str_replace('</a> (', '</a> <span>', $links);
+	$links = str_replace(')', '</span>', $links);
+
+	return $links;
+
+}
+add_filter( 'wp_list_categories', 'sunset_list_categories_output_change' );
