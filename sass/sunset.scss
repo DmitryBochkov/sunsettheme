@@ -884,7 +884,7 @@ a.comment-reply-link {
   Sidebar section
   -------------------
 */
-.sunset-overlay {
+.sidebar-overlay {
   display: none;
   position: fixed;
   top: 0;
@@ -893,6 +893,7 @@ a.comment-reply-link {
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.3);
   z-index: 3;
+  cursor: e-resize;
 }
 .sunset-sidebar {
   position: fixed;

@@ -39,7 +39,7 @@
     </div><!-- .sunset-sidebar -->
 
 
-    <div class="sunset-overlay"></div>
+    <div class="sidebar-overlay js-toggleSidebar"></div>
 
     <div class="container-fluid">
 

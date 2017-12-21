@@ -139,7 +139,7 @@ jQuery(document).ready(function($) {
   $(document).on('click', '.js-toggleSidebar', function() {
     $('.sunset-sidebar').toggleClass('sidebar-closed');
     $('body').toggleClass('no-scroll');
-    $('.sunset-overlay').fadeToggle( 320 );
+    $('.sidebar-overlay').fadeToggle( 320 );
   });
 
 });
