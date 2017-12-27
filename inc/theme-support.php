@@ -76,7 +76,7 @@ function sunset_posted_footer( $onlyComments = false ) {
   } else {
     $comments = __('Comments are closed');
   }
-  
+
   if ($onlyComments) {
     return $comments;
   }

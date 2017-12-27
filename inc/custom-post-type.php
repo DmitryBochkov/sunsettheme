@@ -13,7 +13,6 @@ if ( @$contact == 1) {
   add_action( 'manage_sunset-contact_posts_custom_column', 'sunset_contact_custom_column', 10, 2 );
   add_action( 'add_meta_boxes', 'sunset_contact_add_meta_box' );
   add_action( 'save_post', 'sunset_save_contact_email_data' );
-
 }
 
 /*Contact CPT*/
@@ -49,9 +48,11 @@ function sunset_set_contact_columns( $columns ) {
 
 function sunset_contact_custom_column( $column, $post_id ) {
   switch ( $column ) {
+    // message column
     case 'message':
       echo get_the_excerpt();
       break;
+    // email column
     case 'email':
       $email = get_post_meta( $post_id, '_contact_email_value_key', true );
       echo '<a href="mailto:' . $email . '">' . $email . '</a>';

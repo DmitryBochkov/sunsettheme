@@ -6,6 +6,7 @@
 Admin Page
 =========
 */
+
 function sunset_add_admin_page() {
   // generate admin page
   add_menu_page( 'Sunset Theme Options', 'Sunset', 'manage_options', 'alecadd_sunset', 'sunset_theme_create_page', get_template_directory_uri() . '/img/sunset-icon.png', 110 );
