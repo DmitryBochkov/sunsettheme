@@ -120,8 +120,17 @@ function sunset_save_contact() {
 
   $postID = wp_insert_post( $args );
 
-  echo $postID;
-  // echo 0;
+  if ( $postID != 0 ) {
+    $to = get_bloginfo( 'admin_email' );
+    $subject = 'Sunset Contact Form - ' . $title;
+    $headers[] = 'From: ' . get_bloginfo( 'name' ) . ' <' . $to . '>';
+    $headers[] = 'Reply-To: ' . $title . ' <' . $email . '>';
+    $headers[] = 'Content-Type: text/html; charset=UTF-8';
+    wp_mail( $to, $subject, $message, $headers );
+    echo $postID;
+  } else {
+    echo 0;
+  }
 
   die();
 }
