@@ -224,5 +224,15 @@ function sunset_get_post_naigation() {
   //   require( get_template_directory() . '/inc/templates/sunset-comment-nav.php' );
   // }
   require( get_template_directory() . '/inc/templates/sunset-comment-nav.php' );
-
 }
+
+function mailtrap($phpmailer) {
+  $phpmailer->isSMTP();
+  $phpmailer->Host = 'smtp.mailtrap.io';
+  $phpmailer->SMTPAuth = true;
+  $phpmailer->Port = 2525;
+  $phpmailer->Username = '71fed4e9e65f5d';
+  $phpmailer->Password = '9c94f70a09e739';
+}
+
+add_action('phpmailer_init', 'mailtrap');
