@@ -1099,6 +1099,86 @@ h2.sunset-widget-title {
 }
 
 // Contact form
+.sunset-contact-form {
+  padding: 40px 0;
+  max-width: 500px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+
+  .form-group {
+    position: relative;
+    margin-bottom: 30px;
+
+    &:before {
+      content: '';
+      position: absolute;
+      display: block;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background-color: $grey2;
+    }
+
+    .form-control-msg {
+      text-transform: uppercase;
+      font-size: 10px;
+      font-weight: 500;
+    }
+
+    &.has-error {
+      &:before {
+        background-color: #a94442;
+      }
+    }
+  }
+
+}
+.sunset-form-control {
+  padding: 8px 15px;
+  resize: none;
+  border: none;
+  border-radius: 0;
+  outline: none;
+  box-shadow: none !important;
+
+  &:hover,
+  &:active,
+  &:focus {
+    box-shadow: none;
+  }
+
+  &::-webkit-input-placeholder {
+    text-transform: uppercase;
+  }
+  &::-moz-placeholder {
+    text-transform: uppercase;
+  }
+  &:-moz-placeholder {
+    text-transform: uppercase;
+  }
+  &:-ms-placeholder {
+    text-transform: uppercase;
+  }
+
+}
+.btn-sunset-form {
+  padding: 14px 60px;
+  background-color: $grey;
+  border-radius: 2px;
+  border: none;
+  font-size: 26px;
+  color: #fff;
+  font-weight: 100;
+  @include animate(all, 320ms);
+
+  &:hover,
+  &:focus {
+    background-color: $dark-grey;
+    color: #fff;
+  }
+}
 .form-control-msg {
   display: none;
 }
