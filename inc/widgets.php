@@ -98,7 +98,7 @@ function sunset_save_post_views( $postID ) {
   $count++;
 
   update_post_meta( $postID, $metaKey, $count );
-  echo $views;
+  // echo $views;
 }
 remove_action( 'wp_head', 'adjacent_post_rel_link_wp_head', 10, 0 );
 

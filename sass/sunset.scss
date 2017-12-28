@@ -54,6 +54,10 @@ a {
   position: relative;
   height: 326px;
   @extend %text-shadow;
+
+  @media (max-width: $xs) {
+    height: 200px;
+  }
 }
 .site-title {
   margin: 0;
@@ -80,6 +84,7 @@ a {
 */
 .navbar-sunset {
   margin: 0;
+  padding: 0 15px;
   min-height: auto;
   border: none;
   border-radius: 0;

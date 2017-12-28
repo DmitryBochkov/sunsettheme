@@ -61,7 +61,7 @@
             </div><!-- .table-cell -->
           </header><!-- .header-content -->
 
-          <div class="nav-container">
+          <div class="nav-container hidden-xs">
 
             <nav class="navbar navbar-default navbar-sunset">
               <?php
