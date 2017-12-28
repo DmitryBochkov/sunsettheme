@@ -236,3 +236,10 @@ function mailtrap($phpmailer) {
 }
 
 add_action('phpmailer_init', 'mailtrap');
+
+// Initilize global Mobile detect
+function mobileDetectGlobal() {
+  global $detect;
+  $detect = new Mobile_Detect;
+}
+add_action( 'after_setup_theme', 'mobileDetectGlobal' );
